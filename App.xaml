@@ -1,9 +1,7 @@
-﻿<Application x:Class="ritual_service.App"
+﻿<Application x:Class="RitualService.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:ritual_service"
+             xmlns:local="clr-namespace:RitualService"
              StartupUri="MainWindow.xaml">
-    <Application.Resources>
-         
-    </Application.Resources>
+    <Application.Resources />
 </Application>
