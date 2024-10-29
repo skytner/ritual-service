@@ -1,0 +1,11 @@
+<Page x:Class="RitualService.Features.ServicesPage.ServicesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:local="clr-namespace:RitualService.UI.Components"
+      Title="Услуги">
+
+    <StackPanel>
+        <TextBlock Text="Наши услуги" FontSize="18" Margin="10" />
+        
+    </StackPanel>
+</Page>

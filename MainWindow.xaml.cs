@@ -7,7 +7,8 @@ namespace RitualService
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new Views.MainPage());
+            var mainViewModel = new MainWindowViewModel(MainFrame);
+            DataContext = mainViewModel;
         }
     }
 }

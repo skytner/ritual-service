@@ -1,13 +1,25 @@
 <UserControl x:Class="RitualService.UI.Components.HeaderComponent"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StackPanel Background="Gray">
-        <TextBlock Text="Ритуальные услуги" FontSize="24" Foreground="White" />
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Height="500" Width="1440">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="pack://application:,,,/RitualService;component/Images/header_bg.png" 
+                         Stretch="UniformToFill" />
+        </Grid.Background>
 
-        <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
-            <Button Content="Главная" Margin="5,0"/>
-            <Button Content="Услуги" Margin="5,0"/>
-            <Button Content="Контакты" Margin="5,0"/>
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel.Resources>
+                <Style TargetType="Button" BasedOn="{StaticResource CircularButtonStyle}">
+                    <Setter Property="Width" Value="200"/>
+                    <Setter Property="Height" Value="200"/>
+                </Style>
+                
+            </StackPanel.Resources>
+            <Button Content="Главная" Command="{Binding NavigateToMainPageCommand}" Margin="0,0,124,0"/>
+            <Button Content="Услуги" Command="{Binding NavigateToServicesPageCommand}" Margin="0,0,124,0"/>
+            <Button Content="Контакты" Command="{Binding NavigateToContactsPageCommand}"/>
+
         </StackPanel>
-    </StackPanel>
+    </Grid>
 </UserControl>

@@ -1,14 +1,13 @@
 using System.Windows.Controls;
-using RitualService.ViewModels;
 
-namespace RitualService.Views
+namespace RitualService.Features.MainPage
 {
     public partial class MainPage : Page
     {
         public MainPage()
         {
             InitializeComponent();
-            DataContext = new MainPageViewModel();
+            DataContext = new MainPageViewModel(); 
         }
     }
 }

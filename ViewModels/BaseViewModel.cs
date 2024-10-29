@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace YourNamespace.ViewModels
+namespace RitualService.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {

@@ -1,0 +1,12 @@
+<Page x:Class="RitualService.Features.ContactsPage.ContactsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:local="clr-namespace:RitualService.UI.Components"
+      Title="Контакты">
+
+    <StackPanel>
+        
+        <TextBlock Text="Контактная информация" FontSize="24" Margin="10" />
+        
+    </StackPanel>
+</Page>
