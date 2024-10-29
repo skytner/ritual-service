@@ -55,6 +55,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Features\AuthPage\AuthPage.xaml.cs">
+      <DependentUpon>AuthPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Features\AuthPage\AuthPageViewModel.cs" />
     <Compile Include="Features\ContactsPage\ContactsPage.xaml.cs">
       <DependentUpon>ContactsPage.xaml</DependentUpon>
     </Compile>
@@ -63,6 +67,10 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Features\MainPage\MainPageViewModel.cs" />
+    <Compile Include="Features\MapPage\MapPage.xaml.cs">
+      <DependentUpon>MapPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Features\MapPage\MapPageViewModel.cs" />
     <Compile Include="Features\ServicesPage\ServicesPage.xaml.cs">
       <DependentUpon>ServicesPage.xaml</DependentUpon>
     </Compile>
@@ -71,6 +79,9 @@
     <Compile Include="UI\Components\HeaderComponent.xaml.cs">
       <DependentUpon>HeaderComponent.xaml</DependentUpon>
     </Compile>
+    <Page Include="Features\AuthPage\AuthPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Features\ContactsPage\ContactsPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -78,6 +89,9 @@
     <Page Include="Features\MainPage\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Features\MapPage\MapPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Features\ServicesPage\ServicesPage.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -143,6 +157,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\header_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\kruzh.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

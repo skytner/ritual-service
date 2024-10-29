@@ -26,6 +26,10 @@ namespace RitualService.UI.Components
         {
             NavigateRequested?.Invoke(this, new RoutedEventArgs { RoutedEvent = NavigationEvent.Contacts });
         }
+        private void AuthButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigateRequested?.Invoke(this, new RoutedEventArgs { RoutedEvent = NavigationEvent.Contacts });
+        }
     }
 
     public static class NavigationEvent
@@ -38,5 +42,8 @@ namespace RitualService.UI.Components
 
         public static readonly RoutedEvent Contacts = EventManager.RegisterRoutedEvent(
             "Contacts", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(HeaderComponent));
+
+        public static readonly RoutedEvent Auth = EventManager.RegisterRoutedEvent(
+            "Auth", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(HeaderComponent));
     }
 }

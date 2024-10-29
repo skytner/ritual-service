@@ -16,9 +16,9 @@
                 </Style>
                 
             </StackPanel.Resources>
-            <Button Content="Главная" Command="{Binding NavigateToMainPageCommand}" Margin="0,0,124,0"/>
-            <Button Content="Услуги" Command="{Binding NavigateToServicesPageCommand}" Margin="0,0,124,0"/>
-            <Button Content="Контакты" Command="{Binding NavigateToContactsPageCommand}"/>
+            <Button BorderThickness="10" Content="Главная" Command="{Binding NavigateToMainPageCommand}" Margin="0,0,280,200" Background="#FF281D1D" BorderBrush="#FF120909"/>
+            <Button BorderThickness="10" Content="Услуги" Command="{Binding NavigateToServicesPageCommand}" Margin="0,0,280,200" Background="#FF281D1D" BorderBrush="#FF120909"/>
+            <Button BorderThickness="10" Content="Контакты" Command="{Binding NavigateToContactsPageCommand}" Margin="0,0,0,200" Background="#FF281D1D" BorderBrush="#FF120909"/>
 
         </StackPanel>
     </Grid>
