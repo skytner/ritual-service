@@ -10,5 +10,6 @@ namespace RitualService
             var mainViewModel = new MainWindowViewModel(MainFrame);
             DataContext = mainViewModel;
         }
+
     }
 }

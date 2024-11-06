@@ -13,6 +13,20 @@ namespace RitualService
     public class MainWindowViewModel : BaseViewModel
     {
         private readonly Frame _frame;
+        private bool _isUserAuthenticated;
+
+        public bool IsUserAuthenticated
+        {
+            get => _isUserAuthenticated;
+            set
+            {
+                if (_isUserAuthenticated != value)
+                {
+                    _isUserAuthenticated = value;
+                    OnPropertyChanged(nameof(IsUserAuthenticated));
+                }
+            }
+        }
 
         public ICommand NavigateToMainPageCommand { get; }
         public ICommand NavigateToServicesPageCommand { get; }
@@ -28,12 +42,27 @@ namespace RitualService
             NavigateToContactsPageCommand = new RelayCommand(NavigateToContactsPage);
             NavigateToAuthPageCommand = new RelayCommand(NavigateToAuthPage);
             NavigateToMapPageCommand = new RelayCommand(NavigateToMapPage);
+
+            // Изначально пользователь не авторизован
+            IsUserAuthenticated = false;
         }
 
         private void NavigateToMainPage() => _frame.Navigate(new MainPage());
         private void NavigateToServicesPage() => _frame.Navigate(new ServicesPage());
         private void NavigateToContactsPage() => _frame.Navigate(new ContactsPage());
-        private void NavigateToAuthPage() => _frame.Navigate(new AuthPage());
+
+        private void NavigateToAuthPage() => _frame.Navigate(new AuthPage(this));
+
+
+        public void SetUserAuthenticated(bool isAuthenticated)
+        {
+            IsUserAuthenticated = isAuthenticated;
+            if (isAuthenticated)
+            {
+                NavigateToMainPage(); // Перенаправление на главную страницу
+            }
+        }
+
         private void NavigateToMapPage() => _frame.Navigate(new MapPage());
     }
 }

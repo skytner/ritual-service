@@ -10,8 +10,34 @@
         </LinearGradientBrush>
     </Window.Background>
     <DockPanel>
-        <local:HeaderComponent DockPanel.Dock="Top" Height="601" />
-        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" />
-        <Button Content="Авторизация\регистрация" FontSize="22" Width="350" Height="60"/>
+        <local:HeaderComponent DockPanel.Dock="Top" Height="600" />
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" DockPanel.Dock="Top"/>
+
+        <StackPanel HorizontalAlignment="Left" Height="120" Margin="0,0,0,50" >
+            <Button Command="{Binding NavigateToAuthPageCommand}" 
+
+                Content="Регистрация" FontSize="22" Width="250" Height="60"
+                Visibility="{Binding IsUserAuthenticated, Converter={StaticResource BoolVisibilityConverter}}" >
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="1,1" StartPoint="0.5,0">
+                        <GradientStop Color="#7FA19494" Offset="0.5"/>
+                        <GradientStop Color="#7F361717"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+
+            <Button Command="{Binding NavigateToAuthPageCommand}" 
+                Content="Авторизация" FontSize="22" Width="200" Height="60" HorizontalAlignment="Left"
+                    Visibility="{Binding IsUserAuthenticated, Converter={StaticResource BoolVisibilityConverter}}">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="1,1" StartPoint="0.5,0">
+                        <GradientStop Color="#7FA19494" Offset="0.5"/>
+                        <GradientStop Color="#7F361717"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+
+        </StackPanel>
+
     </DockPanel>
 </Window>

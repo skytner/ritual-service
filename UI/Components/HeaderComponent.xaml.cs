@@ -28,7 +28,7 @@ namespace RitualService.UI.Components
         }
         private void AuthButton_Click(object sender, RoutedEventArgs e)
         {
-            NavigateRequested?.Invoke(this, new RoutedEventArgs { RoutedEvent = NavigationEvent.Contacts });
+            NavigateRequested?.Invoke(this, new RoutedEventArgs { RoutedEvent = NavigationEvent.Auth });
         }
     }
 

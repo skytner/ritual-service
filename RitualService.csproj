@@ -107,6 +107,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Compile Include="Utils\BoolVisibilityConventer.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="Сommands\RelayCommand.cs" />
     <Page Include="MainWindow.xaml">
