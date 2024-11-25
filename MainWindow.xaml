@@ -14,25 +14,25 @@
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" DockPanel.Dock="Top"/>
 
         <StackPanel HorizontalAlignment="Left" Height="120" Margin="0,0,0,50" >
-            <Button Command="{Binding NavigateToAuthPageCommand}" 
+            <Button Command="{Binding NavigateToAuthPageCommand}" BorderBrush="Transparent" BorderThickness="0"
 
-                Content="Регистрация" FontSize="22" Width="250" Height="60"
+                Content="Регистрация" FontSize="22" Width="250" Height="60" Foreground="#c1beb9"
                 Visibility="{Binding IsUserAuthenticated, Converter={StaticResource BoolVisibilityConverter}}" >
                 <Button.Background>
                     <LinearGradientBrush EndPoint="1,1" StartPoint="0.5,0">
-                        <GradientStop Color="#7FA19494" Offset="0.5"/>
-                        <GradientStop Color="#7F361717"/>
+                        <GradientStop Color="#00A19494" Offset="0.5"/>
+                        <GradientStop Color="#7F1D1111"/>
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
 
             <Button Command="{Binding NavigateToAuthPageCommand}" 
-                Content="Авторизация" FontSize="22" Width="200" Height="60" HorizontalAlignment="Left"
+                Content="Авторизация" FontSize="22" Width="200" Height="60" HorizontalAlignment="Left" Foreground="#c1beb9" BorderBrush="Transparent" BorderThickness="0"
                     Visibility="{Binding IsUserAuthenticated, Converter={StaticResource BoolVisibilityConverter}}">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="1,1" StartPoint="0.5,0">
-                        <GradientStop Color="#7FA19494" Offset="0.5"/>
-                        <GradientStop Color="#7F361717"/>
+                        <GradientStop Color="#00A19494" Offset="0.5"/>
+                        <GradientStop Color="#7F1D1111"/>
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
