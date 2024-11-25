@@ -1,4 +1,6 @@
-﻿using System.ComponentModel;
+﻿using Npgsql;
+using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
 using RitualService.Commands;
@@ -39,7 +41,7 @@ namespace RitualService.Features.AuthPage
 
         public ICommand LoginCommand { get; }
 
-        // Изменение конструктора для принятия MainWindowViewModel
+        // Конструктор принимает MainWindowViewModel
         public AuthPageViewModel(MainWindowViewModel mainWindowViewModel)
         {
             _mainWindowViewModel = mainWindowViewModel;
@@ -48,17 +50,61 @@ namespace RitualService.Features.AuthPage
 
         private void ExecuteLogin()
         {
-            // Простая логика авторизации для демонстрации
-            if (Username == "admin" && Password == "password")
+            // Проверка подключения к базе и вывод данных из таблицы TEST
+            try
             {
-                MessageBox.Show("Вход выполнен!");
+                const string connectionString = "Host=localhost;Port=5432;Username=postgres;Password=1;Database=KURSOVAIA";
+                using (var connection = new NpgsqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string query = "SELECT AA FROM TEST";
 
-                // Уведомляем MainWindowViewModel об успешной авторизации
-                _mainWindowViewModel.SetUserAuthenticated(true);
+                    using (var command = new NpgsqlCommand(query, connection))
+                    {
+                        using (var reader = command.ExecuteReader())
+                        {
+                            string data = "Данные из таблицы TEST:\n";
+                            while (reader.Read())
+                            {
+                                data += $"{reader.GetString(0)}\n";
+                            }
+                            MessageBox.Show(data, "Проверка подключения");
+                        }
+                    }
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Неверное имя пользователя или пароль.");
+                MessageBox.Show($"Ошибка подключения к базе данных: {ex.Message}", "Ошибка");
+            }
+        }
+
+
+        private bool ValidateUser(string username, string password)
+        {
+            const string connectionString = "Host=localhost;Port=5432;Username=postgres;Password=1;Database=KURSOVAIA";
+            const string query = "SELECT password_hash = crypt(@password, password_hash) FROM users WHERE username = @username";
+
+            try
+            {
+                using (var connection = new NpgsqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    using (var command = new NpgsqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@username", username);
+                        command.Parameters.AddWithValue("@password", password);
+
+                        var result = command.ExecuteScalar();
+                        return result != null && (bool)result;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка подключения к базе данных: {ex.Message}");
+                return false;
             }
         }
 
