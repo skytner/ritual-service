@@ -33,7 +33,7 @@ namespace RitualService
         public ICommand NavigateToContactsPageCommand { get; }
         public ICommand NavigateToAuthPageCommand { get; }
         public ICommand NavigateToMapPageCommand { get; }
-
+        public ICommand NavigateToRegisterPageCommand { get; }
         public MainWindowViewModel(Frame frame)
         {
             _frame = frame;
@@ -42,6 +42,7 @@ namespace RitualService
             NavigateToContactsPageCommand = new RelayCommand(NavigateToContactsPage);
             NavigateToAuthPageCommand = new RelayCommand(NavigateToAuthPage);
             NavigateToMapPageCommand = new RelayCommand(NavigateToMapPage);
+            NavigateToRegisterPageCommand = new RelayCommand(NavigateToRegisterPage);
 
             // Изначально пользователь не авторизован
             IsUserAuthenticated = false;
@@ -50,9 +51,8 @@ namespace RitualService
         private void NavigateToMainPage() => _frame.Navigate(new MainPage());
         private void NavigateToServicesPage() => _frame.Navigate(new ServicesPage());
         private void NavigateToContactsPage() => _frame.Navigate(new ContactsPage());
-
         private void NavigateToAuthPage() => _frame.Navigate(new AuthPage(this));
-
+        private void NavigateToRegisterPage() => _frame.Navigate(new RegisterPage());
 
         public void SetUserAuthenticated(bool isAuthenticated)
         {

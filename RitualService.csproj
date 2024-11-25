@@ -93,6 +93,10 @@
       <DependentUpon>MapPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Features\MapPage\MapPageViewModel.cs" />
+    <Compile Include="Features\RegisterPage\RegisterPage.xaml.cs">
+      <DependentUpon>RegisterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Features\RegisterPage\RegisterPageViewModel.cs" />
     <Compile Include="Features\ServicesPage\ServicesPage.xaml.cs">
       <DependentUpon>ServicesPage.xaml</DependentUpon>
     </Compile>
@@ -115,6 +119,7 @@
     <Page Include="Features\MapPage\MapPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Features\RegisterPage\RegisterPage.xaml" />
     <Page Include="Features\ServicesPage\ServicesPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

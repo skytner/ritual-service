@@ -10,11 +10,11 @@
         </LinearGradientBrush>
     </Window.Background>
     <DockPanel>
-        <local:HeaderComponent DockPanel.Dock="Top" Height="600" />
+        <local:HeaderComponent DockPanel.Dock="Top" Height="400" />
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" DockPanel.Dock="Top"/>
 
         <StackPanel HorizontalAlignment="Left" Height="120" Margin="0,0,0,50" >
-            <Button Command="{Binding NavigateToAuthPageCommand}" BorderBrush="Transparent" BorderThickness="0"
+            <Button Command="{Binding NavigateToRegisterPageCommand}" BorderBrush="Transparent" BorderThickness="0"
 
                 Content="Регистрация" FontSize="22" Width="250" Height="60" Foreground="#c1beb9"
                 Visibility="{Binding IsUserAuthenticated, Converter={StaticResource BoolVisibilityConverter}}" >

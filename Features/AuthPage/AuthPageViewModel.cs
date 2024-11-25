@@ -50,35 +50,16 @@ namespace RitualService.Features.AuthPage
 
         private void ExecuteLogin()
         {
-            // Проверка подключения к базе и вывод данных из таблицы TEST
-            try
+            if (ValidateUser(Username, Password))
             {
-                const string connectionString = "Host=localhost;Port=5432;Username=postgres;Password=1;Database=KURSOVAIA";
-                using (var connection = new NpgsqlConnection(connectionString))
-                {
-                    connection.Open();
-                    string query = "SELECT AA FROM TEST";
-
-                    using (var command = new NpgsqlCommand(query, connection))
-                    {
-                        using (var reader = command.ExecuteReader())
-                        {
-                            string data = "Данные из таблицы TEST:\n";
-                            while (reader.Read())
-                            {
-                                data += $"{reader.GetString(0)}\n";
-                            }
-                            MessageBox.Show(data, "Проверка подключения");
-                        }
-                    }
-                }
+                MessageBox.Show("Вход выполнен!");
+                _mainWindowViewModel.SetUserAuthenticated(true);
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show($"Ошибка подключения к базе данных: {ex.Message}", "Ошибка");
+                MessageBox.Show("Неверное имя пользователя или пароль.");
             }
         }
-
 
         private bool ValidateUser(string username, string password)
         {
